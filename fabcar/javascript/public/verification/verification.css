@@ -1,0 +1,58 @@
+body{
+    --color-primary: #2ae0f8;
+    --color-primary-dark: #007f67;
+    --color-secondary: #252c6a;
+    --color-error: #cc3333;
+    --color-success: #4bb544;
+    --border-radius: 10px;
+ 
+    margin: 0;
+    height: 100vh;
+    display: block;
+    /* align-items: center;
+    justify-content: center; */
+    text-align: center;
+    font-size: 18px;
+    margin-top: 10rem;
+    background: var(--color-primary);
+    /*for adding background 
+    background: url(picture location);
+    */
+    background-size: cover;
+}
+.file-upload {
+    display: block;
+    align-items: center;
+    font-size: 15px;
+}
+.file-upload__input {
+    display: none;
+}
+ 
+.file-upload__button {
+    /* -webkit-appearance: none; */
+    background: #009879;
+    border: 2px solid #00745d;
+    border-radius: 4px;
+    /* outline: none;
+    padding: 0.5em 0.8em;
+    margin-right: 15px; */
+    color: #ffffff;
+    font-size: 1em;
+    font-family: sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+  }
+ 
+  .file-upload__button:active {
+    background: #00745d;
+  }
+ 
+  .file-upload__label {
+    max-width: 250px;
+    font-size: 0.95em;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    font-family: sans-serif;
+  }

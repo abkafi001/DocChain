@@ -1,0 +1,17 @@
+<div>
+    <form action="/upload" method="POST" name="upload" id="upload" class="upload-form">
+        <h4>Document Details</h4>
+        <div class="input-field" style="width: 500px;">
+            <i class="fas fa-font"></i>
+            <input type="text" placeholder="Document Name (Title)" name="docName" required/>
+        </div>
+        <div class="input-field" style="width: 500px;">
+            <i class="fas fa-external-link-alt"></i>
+            <input type="url" placeholder="https://www.example.com/demo.pdf" pattern="(http(s?):)([/|.|\w|=|?|-])*\.(?:jpg|pdf|png|txt|jpeg|html|xml)" title="Invalid format! URL has to be of type http(s)://example.com/path/to/the/file/demo.pdf" id="url" name="url" required/>
+        </div>
+        <div class="input-field" style="width: 500px;">
+            <i class="fas fa-file-alt"></i>
+            <input type="text" placeholder="Type of the Document" name="docType" required />
+        </div>
+    </form>
+</div>

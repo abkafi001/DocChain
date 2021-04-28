@@ -1,0 +1,88 @@
+<%- include('../template/docChain_top'); -%>
+
+<div class="row" style="margin: 50px 0px;">
+    <div class="col-6">
+
+        <div>
+            <form action="verify" method="post" id="verify-document">
+                <span class="custom-dropdown" style="font-size: 1.5rem;">
+                    <select name="selected" id="selected">    
+                        <option value="1">Search by Document ID</option>
+                        <option value="2">Search by URL</option>  
+                    </select>
+                </span><br>
+                <div class="input-field" style="width: 500px;">
+                    <i class="fas fa-font" aria-hidden="true"></i>
+                    <input type="text" placeholder="Document ID" name="id" id="id" style="text-transform: uppercase;" required>
+                </div><br>
+                <div class="input-field" style="width: 500px;">
+                    <i class="fas fa-font" aria-hidden="true"></i>
+                    <input type="text" placeholder="https://example.com/demo.pdf" pattern="(http(s?):)([/|.|\w|=|?|-])*\.(?:jpg|pdf|png|txt|jpeg|html|xml)" name="url" id="url" disabled required>
+                </div><br>
+                <button type="submit" class="btn solid" style="width: 300px; font-size: 25px;">Search</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="col-6">
+        <% if(locals.hasOwnProperty('documentFound') && documentFound) { %>
+            <div class="card text-white mb-3" style="max-width: 35rem; margin-top: 75px;">
+                <div class="card-header"><h5 style="text-align: center;"><%= queryResult.docType %></h5></div>
+                <div class="card-body">
+                <h3 class="card-title" style="color: rgb(55, 56, 56);"><%= queryResult.name %></h3><br>
+                <p class="card-text" style="font-size: 1.2rem;">
+
+                    <p style="font-size: 1.3rem;"><strong>Issuer: </strong>
+                    <%=queryResult.issuedBy %>
+                    </p>
+
+                    <p style="font-size: 1.3rem;"><strong><b>Date of Issuance: </b></strong>
+                    <%=queryResult.dateOfIssuance %>
+                    </p>
+
+                    <p style="font-size: 1.3rem;"><strong>Link: </strong>
+                    <a href="<%=queryResult.url %>" rel="noopener noreferrer" target="_blank"><%=queryResult.url %></a>
+                    </p>
+
+                </p>
+                </div>
+            </div>
+        <% } else if (locals.hasOwnProperty('documentFound') && !documentFound) { %>
+            <div class="card text-white mb-3" style="max-width: 35rem; margin-top: 75px; background-color:crimson;">
+                <div class="card-header"><h5 style="text-align: center;">Search Result</h5></div>
+                <div class="card-body">
+                <p class="card-text" style="font-size: 1.2rem;">
+                    <h3>SORRY! Document not found!  :(</h3>
+                </p>
+                </div>
+            </div>
+        <% } %>
+    </div>
+</div>
+
+
+<script>
+    var selected = document.getElementById('selected');
+    var id = document.getElementById('id');
+    var url = document.getElementById('url');
+
+    console.log('hello')
+    selected.addEventListener('change', (e) => {
+        console.log('worked')
+        if(selected.value == '1') {
+            id.removeAttribute('disabled', '');
+            // id.parentElement.style.display = 'block';
+            url.setAttribute('disabled', '');
+            // url.parentElement.style.display = 'none';
+        }
+        else if(selected.value == '2') {
+            url.removeAttribute('disabled', '');
+            // url.parentElement.style.display = 'block';
+            id.setAttribute('disabled', '');
+            // id.parentElement.style.display = 'none';
+        }
+    });
+
+</script>
+
+<%- include('../template/docChain_bottom'); -%>

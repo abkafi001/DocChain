@@ -1,0 +1,44 @@
+</div>
+</div>
+<!-- /#page-content-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+
+<!-- Bootstrap core JavaScript -->
+<script src="jquery.min.js"></script>
+<script src="bootstrap.bundle.min.js"></script>
+
+<!-- Menu Toggle Script -->
+<script>
+$("#menu-toggle").click(function (e) {
+  e.preventDefault();
+  $("#wrapper").toggleClass("toggled");
+});
+</script>
+
+<script>
+  //var triggerSidebarList = [].slice.call(document.querySelectorAll('#sidebar a'))
+  var triggerTabList = [].slice.call(document.querySelectorAll('#list-tab a'))
+  triggerTabList.pop();
+  triggerTabList.forEach(function (triggerEl) {
+    var tabTrigger = new bootstrap.Tab(triggerEl)
+
+    triggerEl.addEventListener('click', function (event) {
+      event.preventDefault()
+      tabTrigger.show()
+    })
+  })
+
+  var selector = "#sidebar-wrapper #sidebar a";
+
+  $(selector).on('click', function(){
+      $(selector).removeClass('active');
+      $(this).addClass('active');
+  });
+
+</script>
+
+</body>
+
+</html>
