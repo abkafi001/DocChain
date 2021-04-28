@@ -1,0 +1,19 @@
+<%- include('../template/docChain_top'); -%>
+
+<div id="dropzone">
+    
+    <form action="/raw-upload" method="POST" enctype="multipart/form-data" class="dropzone needsclick dz-clickable" name="raw-upload">
+        <div class="dz-message needsclick">
+        <button type="button" class="dz-button">Drop files here or click to upload.</button><br>
+        <span class="note needsclick">(This is just a demo dropzone. Selected files are <strong>not</strong> actually uploaded.)</span>
+        </div>
+  
+    </form>
+</div>
+
+<link rel="stylesheet" href="/basic.css">
+<link rel="stylesheet" href="/dropzone.css">
+
+<script src="/dropzone.js"></script>
+
+<%- include('../template/docChain_bottom'); -%>

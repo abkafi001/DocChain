@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>DocChain</title>
+
+  <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+
+  <link rel="shortcut icon" type="image/ico" href="/img/docChain.ico">
+
+  <!-- Bootstrap core CSS -->
+  <link href="bootstrap.min.css" rel="old stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link rel="newest stylesheet" href="/dashboard.css" type="text/css" >
+
+</head>
+
+<body>
+
+  <div class="d-flex" id="wrapper">
+
+    <!-- Sidebar -->
+    <div class="bg-light border-right" id="sidebar-wrapper">
+      <div class="sidebar-heading" style="font-family: Ubuntu; font-weight: 800; font-size: xx-large;">DocChain</div>
+      <div class="list-group list-group-flush" id="sidebar">
+        <a href="/dashboard" class="list-group-item list-group-item-action">Dashboard</a>
+        <a href="/verify-document" class="list-group-item list-group-item-action">Verify Document</a>
+        <a href="#" class="list-group-item list-group-item-action">Update Document</a>
+        <a href="#" class="list-group-item list-group-item-action">Contact us</a>
+        <a href="#" class="list-group-item list-group-item-action">About</a>
+      </div>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+        <button class="btn btn-primary" id="menu-toggle">Toggle Menu</button>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <li class="nav-link">
+              <a><b><h5><%=username %></h5></a></a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#" style="font-weight: 700; font-size: large;">Profile</a>
+                <div class="dropdown-divider"></div>
+                <form action="/logout" method="POST" name="logout" id="logout" class="logout-form">
+                  <a class="dropdown-item" type="button" onclick="javascript:$('#logout').submit();" style="font-weight: 700;">
+                    LOGOUT
+                  </a>
+                </form>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="container-fluid">
