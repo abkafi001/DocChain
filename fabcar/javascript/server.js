@@ -129,7 +129,9 @@ async function main() {
                 const username = req.body.username;
                 const password = await hash.hashPassword(req.body.password);
                 renderObject.match = true;
+                console.log(username+' '+password)
                 const result = await contract.evaluateTransaction('GetUser', username, password);
+                console.log(result.toString());
                 if(result.toString() == ''){
                     renderObject.match = false;
                 }

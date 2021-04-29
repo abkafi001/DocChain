@@ -65,7 +65,7 @@ func (s *SmartContract) InitLedger(ctx contractapi.TransactionContextInterface) 
 		UserName: "satoshi",
 		Name:     "Satoshi Nakamoto",
 		Email:    "satoshi@vistomail.com",
-		Password: "2b97ca225c98730da18c7449f00d5ee8ffadfb1ea4e9fda3cedc70ed2eb57c0537e6719c2250ab4f2123aa2ba3968a5ae2745bc64e1efaca3e6a2fa2860cf63e",
+		Password: "f6d1015e17df348f2d84b3b603648ae4bd14011f4e5b82f885e45587bcad48947d37d64501dc965c0f201171c44b656ee28ed9a5060aea1f2a336025320683d6",
 		DocType:  "USER",
 	}
 

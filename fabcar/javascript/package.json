@@ -9,7 +9,8 @@
     "scripts": {
         "lint": "eslint .",
         "pretest": "npm run lint",
-        "test": "nyc mocha --recursive"
+        "test": "nyc mocha --recursive",
+        "start": "cd ../; ./startFabric.sh; cd javascript/; node enrollAdmin.js; node registerUser.js; node server.js"
     },
     "engineStrict": true,
     "author": "Hyperledger",
