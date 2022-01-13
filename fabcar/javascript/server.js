@@ -247,7 +247,7 @@ async function main() {
                     const result = await contract.evaluateTransaction('QueryDocumentByHash', hashedDocument);
 
                     if(result == '') {
-                        consolelo.log(url)
+                        console.log(url)
                         renderObject.documentFound = false;
                     }
                     else {
@@ -346,16 +346,6 @@ async function main() {
         });
 
         ////////////////////////////// Finish //////////////////////////////////
-
-
-        /////////////////////////////.../////////////////////////////////
-
-        app.post('/verification', (req, res) => {
-            res.send("anon verification to be developped");
-            console.log(JSON.stringify(req.body));
-        });
-
-        ///////////////////////////.../////////////////////////////
 
 
 
