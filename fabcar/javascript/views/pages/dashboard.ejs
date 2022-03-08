@@ -11,18 +11,13 @@
 
     <div class="list-group" id="list-tab" role="tablist" style="margin-top: 10px;">
 
-    <% JSON.parse(documents).forEach(document => { %>
-        <a class="list-group-item list-group-item-action" id="<%= document.Key %>" data-bs-toggle="tab"
-          href="#list-<%= document.Key %>" role="tab" aria-controls="list-<%= document.Key %>" style="min-width: 200px;"><%= document.Key %></a>
-    <% }) %>
-      <a class="list-group-item list-group-item-action" id="list-home-list" data-bs-toggle="tab"
-        href="#list-home" role="tab" aria-controls="list-home" style="min-width: 200px;">Home</a>
-      <a class="list-group-item list-group-item-action" id="list-profile-list" data-bs-toggle="tab"
-        href="#list-profile" role="tab" aria-controls="list-profile">Profile</a>
-      <a class="list-group-item list-group-item-action" id="list-messages-list" data-bs-toggle="tab"
-        href="#list-messages" role="tab" aria-controls="list-messages">Messages</a>
-      <a class="list-group-item list-group-item-action" id="list-settings-list" data-bs-toggle="tab"
-        href="#list-settings" role="tab" aria-controls="list-settings">Settings</a>
+      <% if(documents.length != 0) { %>
+        <% JSON.parse(documents).forEach(document => { %>
+            <a class="list-group-item list-group-item-action" id="<%= document.Key %>" data-bs-toggle="tab"
+              href="#list-<%= document.Key %>" role="tab" aria-controls="list-<%= document.Key %>" style="min-width: 200px;"><%= document.Key %></a>
+        <% }) %>
+      <% } %>
+
       <div class="btn list-group-item list-group-item-action" id="add-document" aria-controls="exampleModal" role="tab" data-toggle="modal"
       data-target="#exampleModal" style="margin: 50px 50px; text-align: center; align-self: center; min-width: 200px;">
         <li class="fas fa-file-upload fa-lg" style="margin: 0px 3px;"></li>
@@ -34,47 +29,35 @@
   </div>
   <div class="col-10">
     <div class="tab-content" id="nav-tabContent" style="margin-left: 300px;">
-      <% JSON.parse(documents).forEach(document => { %>
-          <div class="tab-pane fade" id="list-<%= document.Key %>" role="tabpanel" aria-labelledby="<%= document.Key %>" style="align-self: center;">
-            <p style= "align-content: center;">
-              <div class="card text-white mb-3" style="max-width: 35rem;">
-                <div class="card-header"><h5 style="text-align: center;"><%= document.Record.docType %></h5></div>
-                <div class="card-body">
-                  <h3 class="card-title" style="color: rgb(55, 56, 56);"><%= document.Record.name %></h3><br>
-                  <p class="card-text" style="font-size: 1.2rem;">
+      <% if(documents.length != 0) { %>
+        <% JSON.parse(documents).forEach(document => { %>
+            <div class="tab-pane fade" id="list-<%= document.Key %>" role="tabpanel" aria-labelledby="<%= document.Key %>" style="align-self: center;">
+              <p style= "align-content: center;">
+                <div class="card text-white mb-3" style="max-width: 35rem;">
+                  <div class="card-header"><h5 style="text-align: center;"><%= document.Record.docType %></h5></div>
+                  <div class="card-body">
+                    <h3 class="card-title" style="color: rgb(55, 56, 56);"><%= document.Record.name %></h3><br>
+                    <p class="card-text" style="font-size: 1.2rem;">
 
-                    <p style="font-size: 1.3rem;"><strong>Issuer: </strong>
-                      <%=document.Record.issuedBy %>
+                      <p style="font-size: 1.3rem;"><strong>Issuer: </strong>
+                        <%=document.Record.issuedBy %>
+                      </p>
+
+                      <p style="font-size: 1.3rem;"><strong><b>Date of Issuance: </b></strong>
+                        <%=document.Record.dateOfIssuance %>
+                      </p>
+
+                      <p style="font-size: 1.3rem;"><strong>Link: </strong>
+                        <a href="<%=document.Record.url %>" rel="noopener noreferrer" target="_blank"><%=document.Record.url %></a>
+                      </p>
+
                     </p>
-
-                    <p style="font-size: 1.3rem;"><strong><b>Date of Issuance: </b></strong>
-                      <%=document.Record.dateOfIssuance %>
-                    </p>
-
-                    <p style="font-size: 1.3rem;"><strong>Link: </strong>
-                      <a href="<%=document.Record.url %>" rel="noopener noreferrer" target="_blank"><%=document.Record.url %></a>
-                    </p>
-
-                  </p>
+                  </div>
                 </div>
-              </div>
-            </p>
-          </div>
-      <% }) %>
-      <div class="tab-pane fade" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
-        <p>Hi</p>
-      </div>
-      <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
-        <p>Hello</p>
-      </div>
-      <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
-        <p>Some placeholder content in a paragraph relating to "Messages". And some more content, used here just
-          to pad out and fill this tab panel. In production, you would obviously have more real content here.
-          And not just text. It could be anything, really. Text, images, forms.</p>
-      </div>
-      <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
-        <p>Bye!!</p>
-      </div>
+              </p>
+            </div>
+        <% }) %>
+      <% } %>
     </div>
   </div>
 </div>
